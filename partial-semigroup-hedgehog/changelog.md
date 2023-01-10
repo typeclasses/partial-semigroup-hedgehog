@@ -1,3 +1,7 @@
+0.6.0.14 - 2023 Jan 10
+
+  * Support GHC 9.4
+
 0.6.0.13 - 2022 Dec 30
 
   * Metadata changes only

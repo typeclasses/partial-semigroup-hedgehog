@@ -14,7 +14,7 @@ sourceOverrides = haskell.lib.packageSourceOverrides {
 };
 
 depOverrides = new: old: {
-    partial-semigroup = new.callPackage ./nix/partial-semigroup-0.6.0.0.nix {};
+    partial-semigroup = new.callPackage ./nix/partial-semigroup-0.6.0.1.nix {};
 };
 
 ghc."8.10" = nixos-22-05.haskell.packages.ghc8107.override (old: {
@@ -26,6 +26,10 @@ ghc."9.0" = nixos-22-11.haskell.packages.ghc90.override (old: {
 });
 
 ghc."9.2" = nixos-22-11.haskell.packages.ghc92.override (old: {
+    overrides = combineOverrides old [ sourceOverrides depOverrides ];
+});
+
+ghc."9.4" = nixos-22-11.haskell.packages.ghc94.override (old: {
     overrides = combineOverrides old [ sourceOverrides depOverrides ];
 });
 
